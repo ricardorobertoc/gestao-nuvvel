@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.nuvvel.gestaonuvvel.model.Pessoa;
-import br.com.nuvvel.gestaonuvvel.model.PessoaFisica;
 import br.com.nuvvel.gestaonuvvel.repository.PessoaRepository;
 
 @Service

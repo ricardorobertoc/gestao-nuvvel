@@ -12,6 +12,13 @@ import lombok.Setter;
 @DiscriminatorValue(value = "J")
 public class PessoaJuridica extends Pessoa{
 	
-	public String razaoSocial;
-	public String cnpj;
+	private String razaoSocial;
+	private String cnpj;
+	
+	public PessoaJuridica(String nome, TipoAcao tipoAcao, StatusPessoa statusPessoa, 
+    		String tipoPessoa, String razaoSocial, String cnpj) {
+    	super(nome, tipoAcao, statusPessoa, tipoPessoa);
+    	this.razaoSocial = razaoSocial;
+    	this.cnpj = cnpj;
+    }
 }

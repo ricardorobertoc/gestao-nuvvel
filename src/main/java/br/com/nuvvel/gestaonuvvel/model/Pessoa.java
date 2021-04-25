@@ -15,10 +15,12 @@ import javax.persistence.InheritanceType;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipoPessoa", length = 1, discriminatorType = DiscriminatorType.STRING)
@@ -27,26 +29,31 @@ public class Pessoa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long id;
+	private Long id;
 	
 	@NotBlank(message = "Nome é obrigatório!")
-	public String nome;
+	private String nome;
 	
 	@Enumerated(EnumType.STRING)
-	public TipoAcao tipoAcao;
+	private TipoAcao tipoAcao;
 	
 	/*
-	 * @NotNull(message = "Contato é obrigatório!") public Contato contato;
+	 * @NotNull(message = "Contato é obrigatório!") private Contato contato;
 	 */
 	
 	@Enumerated(EnumType.STRING)
-	public StatusPessoa statusPessoa;
+	private StatusPessoa statusPessoa;
 	
 	@Column(insertable = false, updatable = false)
-	public String tipoPessoa;
+	private String tipoPessoa;
 	
 	
-	
+	public Pessoa(String nome, TipoAcao tipoAcao, StatusPessoa statusPessoa, String tipoPessoa) {
+    	this.nome = nome;
+    	this.tipoAcao = tipoAcao;
+    	this.statusPessoa = statusPessoa;
+    	this.tipoPessoa = tipoPessoa;
+    }
 	
 	
 	

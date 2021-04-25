@@ -12,5 +12,11 @@ import lombok.Setter;
 @DiscriminatorValue(value = "F")
 public class PessoaFisica extends Pessoa{
 
-	public String cpf;
+	private String cpf;
+	
+	public PessoaFisica(String nome, TipoAcao tipoAcao, StatusPessoa statusPessoa, 
+    		String tipoPessoa, String cpf) {
+    	super(nome, tipoAcao, statusPessoa, tipoPessoa);
+    	this.cpf = cpf;
+    }
 }
