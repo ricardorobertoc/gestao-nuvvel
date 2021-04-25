@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.nuvvel.gestaonuvvel.dto.PessoaDto;
 import br.com.nuvvel.gestaonuvvel.model.Pessoa;
-import br.com.nuvvel.gestaonuvvel.model.StatusPessoa;
 import br.com.nuvvel.gestaonuvvel.service.PessoaService;
 
 @RestController
@@ -24,7 +23,6 @@ public class PessoaFisicaController {
 	
 	@PostMapping
 	public ResponseEntity<Pessoa> incluirPessoa(@Valid @RequestBody PessoaDto pessoaDto) {
-		pessoaDto.setStatusPessoa(StatusPessoa.ATIVO);
 		Pessoa pessoa = new Pessoa();
 		if (pessoaDto.getTipoPessoa().equals("F")) {
 			pessoa = pessoaService.salvarPessoa(pessoaDto.transformaParaPessoaFisica());

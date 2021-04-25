@@ -1,5 +1,7 @@
 package br.com.nuvvel.gestaonuvvel.model;
 
+import java.time.OffsetDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -46,6 +48,9 @@ public class Pessoa {
 	
 	@Column(insertable = false, updatable = false)
 	private String tipoPessoa;
+	
+	@Column
+	private OffsetDateTime dataCadastro;
 	
 	
 	public Pessoa(String nome, TipoAcao tipoAcao, StatusPessoa statusPessoa, String tipoPessoa) {
